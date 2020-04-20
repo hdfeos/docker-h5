@@ -1,6 +1,5 @@
 gcc
 build-essential
-libtool
 curl
 wget
 bzip2

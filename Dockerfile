@@ -11,6 +11,7 @@ RUN apt update && apt install -yq $(grep -vE "^\s*#" ./apt.txt)
 # Build HDF5 library.
 RUN git clone https://github.com/live-clones/hdf5; \
     cd hdf5; \
+    ./autogen.sh; \
     ./configure --prefix=/usr/local/; \
     make && make check && make install; \
     cd ..;

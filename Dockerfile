@@ -27,6 +27,7 @@ RUN wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/sr
 
 
 # Build h5py. It doesn't work.
+# pip3 install numpy
 # RUN git clone https://github.com/h5py/h5py.git; \
 #     cd h5py; \
 #    export HDF5_DIR=/usr/local/; \

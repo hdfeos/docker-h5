@@ -1,5 +1,7 @@
 gcc
 build-essential
+libtool
+automake
 curl
 wget
 bzip2

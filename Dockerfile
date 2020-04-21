@@ -26,9 +26,10 @@ RUN wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/sr
     rm -rf /hdf${HDF5_VER}/hdf${HDF5_VER}.tar.gz
 
 
-# Build h5py.    
-RUN git clone https://github.com/h5py/h5py.git; \
-    cd h5py; \
-    export HDF5_DIR=/usr/local/; \
-    python setup.py build; \
-    python setup.py install 
+# Build h5py. It doesn't work.
+# RUN git clone https://github.com/h5py/h5py.git; \
+#     cd h5py; \
+#    export HDF5_DIR=/usr/local/; \
+#     python setup.py build; \
+#    python setup.py install
+# git clone https://github.com/cython/cython

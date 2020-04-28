@@ -25,6 +25,9 @@ RUN git clone https://github.com/live-clones/hdf5; \
     ./configure --prefix=/usr/local/; \
     make && make check && make install; \
     cd ..;
+    
+# Set shared library location for h5 library.
+ENV LD_LIBRARY_PATH /usr/local/lib
 
 # Build Cython
 # git clone https://github.com/cython/cython
@@ -37,5 +40,14 @@ RUN git clone https://github.com/live-clones/hdf5; \
 #     python setup.py build; \
 #     python setup.py install
 
+# set noninteractive installation
+export DEBIAN_FRONTEND=noninteractive
+#install tzdata package
+apt-get install -y tzdata
+# set your timezone
+ln -fs /usr/share/zoneinfo/America/Chicago /etc/localtime
+dpkg-reconfigure --frontend noninteractive tzdata
+
 # Install h5py using pip3 until h5py is fixed.
 RUN pip3 install h5py;
+

@@ -40,13 +40,11 @@ ENV LD_LIBRARY_PATH /usr/local/lib
 #     python setup.py build; \
 #     python setup.py install
 
-# set noninteractive installation
-export DEBIAN_FRONTEND=noninteractive
-#install tzdata package
-apt-get install -y tzdata
-# set your timezone
-ln -fs /usr/share/zoneinfo/America/Chicago /etc/localtime
-dpkg-reconfigure --frontend noninteractive tzdata
+# install tzdata package
+RUN export DEBIAN_FRONTEND=noninteractive; \
+    apt-get install -y tzdata; \
+    ln -fs /usr/share/zoneinfo/America/Chicago /etc/localtime; \
+    dpkg-reconfigure --frontend noninteractive tzdata;
 
 # Install h5py using pip3 until h5py is fixed.
 RUN pip3 install h5py;

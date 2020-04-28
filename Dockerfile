@@ -37,3 +37,5 @@ RUN git clone https://github.com/live-clones/hdf5; \
 #     python setup.py build; \
 #     python setup.py install
 
+# Install h5py using pip3 until h5py is fixed.
+RUN pip3 install h5py;

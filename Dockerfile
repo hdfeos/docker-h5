@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM python:3.8-slim-buster
 
 MAINTAINER The HDF-EOS Tools and Information Center <eoshelp@hdfgroup.org>
 
@@ -40,11 +40,6 @@ ENV LD_LIBRARY_PATH /usr/local/lib
 #     python setup.py build; \
 #     python setup.py install
 
-# install tzdata package
-RUN export DEBIAN_FRONTEND=noninteractive; \
-    apt-get install -y tzdata; \
-    ln -fs /usr/share/zoneinfo/America/Chicago /etc/localtime; \
-    dpkg-reconfigure --frontend noninteractive tzdata;
 
 # Install h5py using pip3 until h5py is fixed.
 RUN pip3 install h5py;

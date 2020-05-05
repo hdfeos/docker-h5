@@ -44,3 +44,10 @@ ENV LD_LIBRARY_PATH /usr/local/lib
 # Install h5py using pip3 until h5py is fixed.
 RUN pip3 install h5py;
 
+# Install profile analysis tool.
+RUN pip3 install grpof2dot;
+
+# Install markdown to rst tool.
+RUN pip3 m2r;
+
+

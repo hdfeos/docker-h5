@@ -48,6 +48,6 @@ RUN pip3 install h5py;
 RUN pip3 install gprof2dot;
 
 # Install markdown to rst tool.
-RUN pip3 m2r;
+RUN pip3 install m2r;
 
 

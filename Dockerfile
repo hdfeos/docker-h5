@@ -22,7 +22,7 @@ RUN apt update && apt install -yq $(grep -vE "^\s*#" ./apt.txt)
 RUN git clone https://github.com/live-clones/hdf5; \
     cd hdf5; \
     export HDF5_LIBTOOL=/usr/bin/libtoolize && ./autogen.sh; \
-    ./configure --prefix=/usr/local/; \
+    ./configure --prefix=/usr/local/ --enable-ros3-vfd; \
     make && make check && make install; \
     cd ..;
     

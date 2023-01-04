@@ -9,17 +9,8 @@ COPY ["./apt.txt", "./"]
 RUN apt update && apt install -yq $(grep -vE "^\s*#" ./apt.txt)
 
 
-# Build the release.
-# RUN wget https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.gz; \
-#     tar zxvf hdf5-1.12.0.tar.gz; \
-#     cd hdf5-1.12.0; \
-#     ./configure --prefix=/usr/local/; \
-#     make && make check && make install; \
-#     cd ..; \
-#     rm -rf /hdf${HDF5_VER}/hdf${HDF5_VER}.tar.gz
-
 # Build the latest HDF5 library.
-RUN git clone https://github.com/live-clones/hdf5; \
+RUN git clone https://github.com/HDFGroup/hdf5; \
     cd hdf5; \
     export HDF5_LIBTOOL=/usr/bin/libtoolize && ./autogen.sh; \
     ./configure --prefix=/usr/local/ --enable-ros3-vfd; \
